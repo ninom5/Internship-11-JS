@@ -51,7 +51,7 @@ function getSalary() {
     let parsedPrice = parseFloat(price.replace(",", "."));
 
     if (parsedPrice <= 0 || isNaN(parsedPrice)) {
-      alert("price cant be less or equal to 0");
+      alert("salary cant be less or equal to 0");
       continue;
     }
 
