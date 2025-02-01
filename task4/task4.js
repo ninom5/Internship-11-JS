@@ -53,7 +53,7 @@ function getStringData(promptText) {
   while (!isValid) {
     let data = prompt(promptText);
     if (data === "") {
-      alert(`${type} cant be empty`);
+      alert(`${promptText} cant be empty`);
       continue;
     }
     isValid = true;
@@ -64,16 +64,16 @@ function getStringData(promptText) {
 function getCalories() {
   let isValid = false;
   while (!isValid) {
-    let price = prompt("Enter calories of the plant");
-    let parsedPrice = parseFloat(price.replace(",", "."));
+    let calories = prompt("Enter calories of the plant");
+    let parsedCalories = parseFloat(calories.replace(",", "."));
 
-    if (parsedPrice <= 0 || isNaN(parsedPrice)) {
+    if (parsedCalories <= 0 || isNaN(parsedCalories)) {
       alert("calories cant be less or equal to 0");
       continue;
     }
 
     isValid = true;
-    return parsedPrice;
+    return parsedCalories;
   }
 }
 
