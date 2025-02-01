@@ -53,7 +53,7 @@ function getStringData(promptText) {
   while (!isValid) {
     let data = prompt(promptText);
     if (data === "") {
-      alert(`${promptText} cant be empty`);
+      alert(`field cant be empty`);
       continue;
     }
     isValid = true;

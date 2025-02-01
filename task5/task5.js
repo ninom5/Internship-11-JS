@@ -22,13 +22,16 @@ categories.forEach((category) => {
 
 function getStringData(promptText) {
   let isValid = false;
+
   while (!isValid) {
     let data = prompt(promptText);
     if (data === "") {
-      alert(`${promptText} cant be empty`);
+      alert(`field cant be empty`);
       continue;
     }
+
     isValid = true;
+
     return data;
   }
 }
