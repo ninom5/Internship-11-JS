@@ -43,8 +43,7 @@ function getStringData(promptText) {
 }
 
 function getPoints() {
-  let isValid = false;
-  while (!isValid) {
+  while (true) {
     let points = prompt("Enter percentage of the student");
     let parsedPoints = parseFloat(points.replace(",", "."));
 
@@ -53,7 +52,6 @@ function getPoints() {
       continue;
     }
 
-    isValid = true;
     return parsedPoints;
   }
 }
@@ -70,8 +68,8 @@ function printSortedStudentsByCategory(category) {
 
   filteredStudents.sort((a, b) => a.surname.localeCompare(b.surname));
 
-  console.log("");
-  console.log("Students from category: ", category, "(fromat: surname, name");
+  console.log("\nStudents from category: ", category, "(fromat: surname, name");
+
   filteredStudents.forEach((student, index) => {
     console.log(`${index + 1}. ${student.surname + " " + student.name}`);
   });

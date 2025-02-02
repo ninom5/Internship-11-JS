@@ -37,6 +37,7 @@ countCaloriesByColor();
 
 console.log("");
 console.log("Calories by color");
+
 colors.forEach((color) => {
   console.log(`Color: ${color.name}, total calories: ${color.totalCalories}`);
 });
@@ -49,9 +50,7 @@ sortedColors.forEach((color) => {
 });
 
 function getStringData(promptText) {
-  let isValid = false;
-
-  while (!isValid) {
+  while (true) {
     let data = prompt(promptText);
 
     if (data?.trim() === "") {
@@ -64,15 +63,12 @@ function getStringData(promptText) {
       continue;
     }
 
-    isValid = true;
-
     return data;
   }
 }
 
 function getCalories() {
-  let isValid = false;
-  while (!isValid) {
+  while (true) {
     let calories = prompt("Enter calories of the plant");
     let parsedCalories = parseFloat(calories.replace(",", "."));
 
@@ -81,7 +77,6 @@ function getCalories() {
       continue;
     }
 
-    isValid = true;
     return parsedCalories;
   }
 }
@@ -98,6 +93,7 @@ function countCaloriesByColor() {
     .slice(0, 3);
 
   console.log("Top 3 colors by the most calories: ");
+
   topThreeColors.forEach((color) => {
     console.log(
       `Color: ${color.name} with total calories: ${color.totalCalories}`

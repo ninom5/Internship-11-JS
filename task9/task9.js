@@ -23,9 +23,7 @@ const csvCities = cities.map((city) => city.name).join(", ");
 console.log("Cities in csv format: ", csvCities);
 
 function getStringData(promptText) {
-  let isValid = false;
-
-  while (!isValid) {
+  while (true) {
     let data = prompt(promptText);
 
     if (data?.trim() === "") {
@@ -37,8 +35,6 @@ function getStringData(promptText) {
       alert("Field can t contain numbers.");
       continue;
     }
-
-    isValid = true;
 
     return data;
   }

@@ -32,9 +32,7 @@ sectorcontributionPercentage();
 printAll();
 
 function getStringData(promptText) {
-  let isValid = false;
-
-  while (!isValid) {
+  while (true) {
     let data = prompt(promptText);
 
     if (data?.trim() === "") {
@@ -46,8 +44,6 @@ function getStringData(promptText) {
       alert("Field can t contain numbers.");
       continue;
     }
-
-    isValid = true;
 
     return data;
   }
@@ -77,6 +73,7 @@ function countAllSalary() {
 function sectorcontributionPercentage() {
   sectors.forEach((sector) => {
     sector.contribution = ((sector.totalSalary / totalSalary) * 100).toFixed(2);
+
     sector.employes.forEach((employee) => {
       employee.contributionToSector = (
         (employee.salary / sector.totalSalary) *

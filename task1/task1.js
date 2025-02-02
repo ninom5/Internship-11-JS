@@ -16,23 +16,19 @@ do {
   booksData.push({ name, price, genre });
 } while (confirm("Do you want to continue with input?"));
 
-if (booksData.length > 1) {
-  getAveragePrice();
-  mostDifferenceFromAvg();
+getAveragePrice();
+mostDifferenceFromAvg();
 
-  const sortedBooks = booksData.sort((a, b) => b.difference - a.difference);
-  console.log(
-    "Books sorted by difference from the biggest to lowest: ",
-    sortedBooks
-  );
-} else console.log("Not enough data to process(at least 2 books needed");
+const sortedBooks = booksData.sort((a, b) => b.difference - a.difference);
+console.log(
+  "Books sorted by difference from the biggest to lowest: ",
+  sortedBooks
+);
 
 console.log("all books inserted: ", booksData);
 
 function getStringData(promptText) {
-  let isValid = false;
-
-  while (!isValid) {
+  while (true) {
     let data = prompt(promptText);
 
     if (data?.trim() === "") {
@@ -44,8 +40,6 @@ function getStringData(promptText) {
       alert("Field can t contain numbers.");
       continue;
     }
-
-    isValid = true;
 
     return data;
   }
@@ -82,7 +76,7 @@ function mostDifferenceFromAvg() {
 
     book.difference = currDif;
 
-    if (currDif > maxDiff) {
+    if (currDif >= maxDiff) {
       maxDiff = currDif;
       maxDiffBook = book;
     }

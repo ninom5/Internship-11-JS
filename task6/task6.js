@@ -32,9 +32,12 @@ let totalPriceOfUnAvailable = unavailableEquipment.reduce(
 );
 
 console.log("Indexes of unavailable equipment: ");
-unavailableEquipment.forEach((equipment) => {
-  console.log(equipment.index, equipment.name);
-});
+
+if (unavailableEquipment.length > 0) {
+  unavailableEquipment.forEach((equipment) => {
+    console.log(equipment.index, equipment.name);
+  });
+} else console.log("No unavailable equipment");
 
 const sortedByPrice = [...availableEquipment].sort((a, b) => a.price - b.price);
 const sortedByName = [...availableEquipment].sort((a, b) =>
@@ -42,6 +45,7 @@ const sortedByName = [...availableEquipment].sort((a, b) =>
 );
 
 console.log("Sorted available equipmetn by price: ");
+
 sortedByPrice.forEach((equipment) => {
   console.log(
     `Price: ${equipment.price}, name: ${equipment.name}, status: ${equipment.status}`
@@ -49,6 +53,7 @@ sortedByPrice.forEach((equipment) => {
 });
 
 console.log("Sorted available equipment by name: ");
+
 sortedByName.forEach((equipment) => {
   console.log(
     `Price: ${equipment.name}, name: ${equipment.price}, status: ${equipment.status}`
@@ -102,9 +107,7 @@ priceCategories.expensive.forEach((equipment) => {
 });
 
 function getStringData(promptText) {
-  let isValid = false;
-
-  while (!isValid) {
+  while (true) {
     let data = prompt(promptText);
 
     if (data?.trim() === "") {
@@ -117,28 +120,24 @@ function getStringData(promptText) {
       continue;
     }
 
-    isValid = true;
-
     return data;
   }
 }
 
 function getStatus(promptText) {
-  let isValid = false;
-  while (!isValid) {
+  while (true) {
     let data = prompt(promptText);
     if (data === "" || (data !== "dostupno" && data !== "nedostupno")) {
       alert(`${promptText} cant be empty`);
       continue;
     }
-    isValid = true;
+
     return data;
   }
 }
 
 function getPrice() {
-  let isValid = false;
-  while (!isValid) {
+  while (true) {
     let price = prompt("Enter equipment price");
     let parsedPrice = parseFloat(price.replace(",", "."));
 
@@ -147,7 +146,6 @@ function getPrice() {
       continue;
     }
 
-    isValid = true;
     return parsedPrice;
   }
 }

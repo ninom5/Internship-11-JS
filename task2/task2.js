@@ -51,9 +51,9 @@ function getStringData(promptText) {
     return data;
   }
 }
+
 function getSalary() {
-  let isValid = false;
-  while (!isValid) {
+  while (true) {
     let price = prompt("Enter salary of the employee");
     let parsedPrice = parseFloat(price.replace(",", "."));
 
@@ -62,7 +62,6 @@ function getSalary() {
       continue;
     }
 
-    isValid = true;
     return parsedPrice;
   }
 }
