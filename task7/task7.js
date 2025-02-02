@@ -25,16 +25,14 @@ function recursiveSquares(n) {
 }
 
 function getMedian() {
-  let sortedSquaredNumbers = [...arrayOfSquared].sort((a, b) => a - b);
-
   if (numberOfElements % 2 === 0) {
-    let middleValueNumber = sortedSquaredNumbers[numberOfElements / 2 - 1];
-    let middleValueNumber2 = sortedSquaredNumbers[numberOfElements / 2];
+    let middleValueNumber = arrayOfSquared[numberOfElements / 2 - 1];
+    let middleValueNumber2 = arrayOfSquared[numberOfElements / 2];
 
     return (middleValueNumber + middleValueNumber2) / 2;
   }
 
-  return sortedSquaredNumbers[Math.floor(numberOfElements / 2)];
+  return arrayOfSquared[Math.floor(numberOfElements / 2)];
 }
 
 function getNumberOfElements() {
