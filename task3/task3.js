@@ -3,16 +3,16 @@ let totalSalary = 0;
 let sectors = [];
 
 do {
-  let name = getStringData("name");
+  let name = getStringData("Enter employee name");
   if (name === null) break;
 
-  let surname = getStringData("surname");
+  let surname = getStringData("Enter employee surname");
   if (surname === null) break;
 
   let salary = getSalary();
   if (salary === null) break;
 
-  let sector = getStringData("sector");
+  let sector = getStringData("Enter sector");
   if (sector === null) break;
 
   let sec = sectors.find((s) => s.name === sector);
@@ -31,15 +31,24 @@ countAllSalary();
 sectorcontributionPercentage();
 printAll();
 
-function getStringData(type) {
+function getStringData(promptText) {
   let isValid = false;
+
   while (!isValid) {
-    let data = prompt(`Enter ${type} of the worker`);
-    if (data === "") {
-      alert(`${type} cant be empty`);
+    let data = prompt(promptText);
+
+    if (data?.trim() === "") {
+      alert(`field cant be empty`);
       continue;
     }
+
+    if (/\d/.test(data)) {
+      alert("Field can t contain numbers.");
+      continue;
+    }
+
     isValid = true;
+
     return data;
   }
 }

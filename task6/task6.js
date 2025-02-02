@@ -107,8 +107,13 @@ function getStringData(promptText) {
   while (!isValid) {
     let data = prompt(promptText);
 
-    if (data === "") {
-      alert(`field cant be empty. must be: dostupno / nedostupno`);
+    if (data?.trim() === "") {
+      alert(`field cant be empty`);
+      continue;
+    }
+
+    if (/\d/.test(data)) {
+      alert("Field can t contain numbers.");
       continue;
     }
 

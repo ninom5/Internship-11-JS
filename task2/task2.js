@@ -4,16 +4,16 @@ let salaryIndustry = [];
 let industriesWithMinTwoEmployees = [];
 
 do {
-  let name = getStringData("name");
+  let name = getStringData("Enter name of worker");
   if (name === null) break;
 
-  let surname = getStringData("surname");
+  let surname = getStringData("Enter surname of worker");
   if (surname === null) break;
 
   let salary = getSalary();
   if (salary === null) break;
 
-  let industry = getStringData("industry");
+  let industry = getStringData("Enter industry");
   if (industry === null) break;
 
   if (!industries.includes(industry)) industries.push(industry);
@@ -30,19 +30,27 @@ industriesWithMinTwoEmployees.length > 0
     )
   : console.log("There is no industries with at least 2 employees");
 
-function getStringData(type) {
+function getStringData(promptText) {
   let isValid = false;
+
   while (!isValid) {
-    let data = prompt(`Enter ${type} of the worker`);
-    if (data === "") {
-      alert(`${type} cant be empty`);
+    let data = prompt(promptText);
+
+    if (data?.trim() === "") {
+      alert(`field cant be empty`);
       continue;
     }
+
+    if (/\d/.test(data)) {
+      alert("Field can t contain numbers.");
+      continue;
+    }
+
     isValid = true;
+
     return data;
   }
 }
-
 function getSalary() {
   let isValid = false;
   while (!isValid) {

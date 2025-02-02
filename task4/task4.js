@@ -50,13 +50,22 @@ sortedColors.forEach((color) => {
 
 function getStringData(promptText) {
   let isValid = false;
+
   while (!isValid) {
     let data = prompt(promptText);
-    if (data === "") {
+
+    if (data?.trim() === "") {
       alert(`field cant be empty`);
       continue;
     }
+
+    if (/\d/.test(data)) {
+      alert("Field can t contain numbers.");
+      continue;
+    }
+
     isValid = true;
+
     return data;
   }
 }

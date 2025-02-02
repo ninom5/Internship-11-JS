@@ -4,13 +4,13 @@ let maxDiff = 0;
 let maxDiffBook;
 
 do {
-  let name = getStringData("name");
+  let name = getStringData("Enter name of the book");
   if (name === null) break;
 
   let price = getPrice();
   if (price === null) break;
 
-  let genre = getStringData("genre");
+  let genre = getStringData("Enter genre of the book");
   if (genre === null) break;
 
   booksData.push({ name, price, genre });
@@ -29,15 +29,24 @@ if (booksData.length > 1) {
 
 console.log("all books inserted: ", booksData);
 
-function getStringData(type) {
+function getStringData(promptText) {
   let isValid = false;
+
   while (!isValid) {
-    let data = prompt(`Enter ${type} of the book`);
-    if (data === "") {
-      alert(`${type} cant be empty`);
+    let data = prompt(promptText);
+
+    if (data?.trim() === "") {
+      alert(`field cant be empty`);
       continue;
     }
+
+    if (/\d/.test(data)) {
+      alert("Field can t contain numbers.");
+      continue;
+    }
+
     isValid = true;
+
     return data;
   }
 }
