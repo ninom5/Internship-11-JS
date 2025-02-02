@@ -11,12 +11,18 @@
       <input type="text" name="name" id="name-input" />
 
       <label for="price">Price of the equipment</label>
-      <input type="text" name="price" id="price-input" />
+      <input type="number" name="price" id="price-input" />
 
       <label for="status">Status</label>
-      <input type="text" name="status" id="status-input" />
+      <select name="status" id="status-select">
+        <option value="dostupno">dostupno</option>
+        <option value="nedostupno">nedostupno</option>
+      </select>
 
       <button type="submit" class="submit-btn">Submit</button>
     </form>
+    <div class="content"></div>
+
+    <script src="./task8.js"></script>
   </body>
 </html>
